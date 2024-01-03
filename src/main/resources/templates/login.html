@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("/image/aesthetics.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            overflow: hidden; /* Скрыть прокрутку уровня body */
+        }
+
+        .card {
+            border: 2px solid #343a40;
+            border-radius: 10px;
+            background-color: rgba(152, 155, 156, 0.41);
+        }
+
+        .card-header {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #ButtonAccountAdd {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">Вход</div>
+                <div class="card-body">
+                    <form th:action="@{/login}" method="post">
+                        <div class="form-group">
+                            <input type="email" autocomplete="email" class="form-control" id="email" th:name="email"
+                                   placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" autocomplete="new-password" class="form-control" id="password"
+                                   th:name="password" placeholder="Password">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" style="margin-right: 10px">
+                                <a th:href="@{/registration}" style="color: white; text-decoration: none;">Создать аккаунт</a>
+                            </button>
+                            <button type="submit" class="btn btn-primary" id="ButtonLoginToAccount">Войти</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

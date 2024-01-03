@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create account</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("/image/aesthetics.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            overflow: hidden; /* Скрыть прокрутку уровня body */
+        }
+
+        .card {
+            border: 2px solid #343a40;
+            border-radius: 10px;
+            background-color: rgba(152, 155, 156, 0.41)
+        }
+
+        .card-header {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">Регистрация</div>
+                <div class="card-body">
+                    <form method="post" th:action="@{/registration}" th:object="${person}">
+                        <div class="form-group">
+                            <input placeholder="Email" autocomplete="email" class="form-control"
+                                   th:field="*{email}"/>
+                            <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="${person.email}"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Password" autocomplete="new-password"
+                                   class="form-control" th:field="*{password}"/>
+                            <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-primary" style="margin-right: 10px">
+                                <a th:href="@{/login}" style="color: white; text-decoration: none;">Вернуться</a>
+                            </button>
+
+                            <button type="submit" class="btn btn-primary" name="action">
+                                <a style="color: white; text-decoration: none;">Зарегистрироваться</a>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

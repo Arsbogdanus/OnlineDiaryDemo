@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <title>Toolbar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("/image/aesthetics.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh; /* 100% высоты экрана */
+            overflow: hidden
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-no-border {
+            border: none;
+            background: none;
+            outline: none;
+        }
+
+        .cursive-font {
+            font-family: cursive;
+        }
+
+        /* Для всех кнопок */
+        .btn:hover {
+            background-color: lightgray;
+            color: black; /* Цвет текста при наведении */
+        }
+
+        /* Для выпадающего списка */
+        .dropdown-menu a:hover {
+            background-color: lightgray;
+            color: black; /* Цвет текста при наведении */
+        }
+
+        .note-section {
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        textarea,
+        input {
+            width: 1600px;
+            border: none;
+            outline: none;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .bottom-buttons {
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            bottom: 10px;
+            width: calc(100% - 40px);
+            padding: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+<form method="post" th:action="@{/newNote}">
+    <div class="toolbar">
+        <button type="submit" name="action" value="mainButton"
+                class="btn btn-secondary text-dark button-no-border cursive-font">OnlineDiary
+        </button>
+
+        <div class="btn-group">
+            <button type="submit" name="action" value="newNoteButton"
+                    class="btn btn-secondary text-dark button-no-border">New Note
+            </button>
+            <button type="submit"
+                    class="btn btn-secondary dropdown-toggle text-dark button-no-border"
+                    data-bs-toggle="dropdown">Tools
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="http://mathsolver.microsoft.com/ru/algebra-calculator">Calculator</a>
+                </li>
+                <li><a class="dropdown-item" href="http://maps.google.ru/maps">Google Maps</a></li>
+            </ul>
+        </div>
+        <button type="submit" name="action" value="exitButton" class="btn btn-secondary text-dark button-no-border">
+            Exit
+        </button>
+    </div>
+
+<form method="post" th:action="@{/newNote}">
+    <section class="note-section">
+        <label>
+            <input type="text" th:id="theme" th:name="theme" placeholder="Тема"/>
+        </label>
+        <div class="separator"></div>
+        <div class="note">
+            <label>
+                <textarea th:id="content" th:name="content" placeholder="Введите заметку"></textarea>
+            </label>
+        </div>
+    </section>
+
+    <div class="bottom-buttons">
+        <button type="submit" name="action" value="cancelButton" class="btn btn-danger">Cancel</button>
+        <button type="submit" name="action" value="saveButton" class="btn btn-danger">Save</button>
+    </div>
+</form>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Note</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<input type="checkbox" id="check">
+<label for="check">
+    <i class="fas fa-bars" id="btn"></i>
+    <i class="fas fa-times" id="cancel"></i>
+</label>
+<div class="sidebar">
+    <header style="font-family: cursive; font-size: 27px">OnlineDiary</header>
+    <ul>
+        <li><a href="/demoapp/src/main/resources/templates/newPage.html"><i class="fas fa-qrcode"></i>New note</a></li>
+        <li><a href="/demoapp/src/main/resources/templates/deletePage.html"><i class="fas fa-qrcode"></i>Delete note</a>
+        <li><a href="http://maps.google.ru/maps"><i class="fas fa-qrcode"></i>Google Maps</a>
+        <li><a href="http://mathsolver.microsoft.com/ru/algebra-calculator"><i class="fas fa-qrcode"></i>Calculator</a>
+        <li><a href="/demoapp/src/main/resources/templates/login.html" id="buttonExit"><i
+                class="fas fa-qrcode"></i>Exit</a></li>
+    </ul>
+</div>
+<section></section>
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .button-container button {
+        position: relative;
+        width: 150px;
+        height: 50px;
+    }
+
+    .ButtonCancel {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        margin: 15px;
+        padding: 10px;
+        background-color: #103350;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .ButtonDelete {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        margin: 15px;
+        padding: 10px;
+        background-color: #103350;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+</style>
+</body>
+<body>
+
+<button style="width:150px;height:50px" class="ButtonCancel" align=”right”><a href="/Diary/src/main/resources/templates/homePage.html" style="color: lightgray; text-decoration: none;">Отмена </a></button>
+
+<button style="width:150px;height: 50px" class="ButtonDelete" ><a style="color: lightgray; text-decoration: none;"> Удалить</a></button>
+
+<script>
+    function openBlankPage() {
+        window.open('', '_blank');
+    }
+
+    function openTablePage() {
+        window.open('table.html', '_blank');
+    }
+</script>
+</body>
+</html>
+</body>
+</html>
+
