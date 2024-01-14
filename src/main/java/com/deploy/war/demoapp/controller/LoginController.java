@@ -23,7 +23,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String loginPostMapping(@RequestParam String email, @RequestParam String password, Model model, BindingResult bindingResult) {
+    public String loginPostMapping(@RequestParam String email, @RequestParam String password, Model model) {
         people = personRepository.findAll();
 
         for (Person person : people) {
